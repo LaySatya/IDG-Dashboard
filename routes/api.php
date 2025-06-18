@@ -9,6 +9,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::prefix('courses')->controller(MoodleServiceController::class)->group(function () {
+Route::prefix('course')->controller(MoodleServiceController::class)->group(function () {
     Route::get('/categories', 'getAllCourseCategories');
+    Route::get('/','getCoursesByCategory');
+    Route::get('/participants','getParticipantsFromCourse');
 });
