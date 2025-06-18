@@ -16,6 +16,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy existing application
 COPY . /var/www
 
+# Install PHP dependencies (this is the missing step!)
+RUN composer install --no-dev --optimize-autoloader
+
 # Set permissions
 RUN chown -R www-data:www-data /var/www
 
