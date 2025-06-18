@@ -33,4 +33,13 @@ class MoodleService extends MoodleBaseService
         return $this->sendRequest($params);
     }
 
+    // Get courses of user which is enrolled
+    public function getEnrolledCoursesOfUser(int $userId){
+        $params = array_merge($this->getBaseParams(), [
+            'wsfunction' => 'core_enrol_get_users_courses',
+            'userid' => $userId
+        ]);
+        return $this->sendRequest($params);
+    }
+
 }

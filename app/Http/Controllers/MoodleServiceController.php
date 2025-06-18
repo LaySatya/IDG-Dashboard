@@ -50,4 +50,19 @@ class MoodleServiceController extends Controller
         return response()->json($participants);
     }
 
+    // Get enrolled courses of user
+    public function getEnrolledCoursesOfUser(Request $request){
+         $userId = $request->input('userid');
+
+        if(empty($userId)){
+            return response()->json([
+                'message'=> 'User id is required!',
+            ]);
+        }
+
+        $enrolledCourses = $this->moodleService->getEnrolledCoursesOfUser($userId);
+
+        return response()->json($enrolledCourses);
+    }
+
 }
