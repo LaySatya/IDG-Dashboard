@@ -12,3 +12,9 @@ services:
         value: false
       - key: APP_KEY
         value: base64:ke/0kRgO2IurYeKwHPXRRDhFKwHfFhtJj3+GblWdHi0=
+      - key: MOODLE_URL
+        value: https://elearning.cadt.edu.kh
+      - key: MOODLE_TOKEN
+        value: c1e3eeb3afcaa484dd4d3b0f7753df73
+      - key: MOODLE_SERVICE
+        value: qapi
