@@ -9,6 +9,11 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
+Route::get('/debug-moodle-url', function () {
+    return config('services.moodle.url');
+});
+
+
 Route::prefix('course')->controller(MoodleServiceController::class)->group(function () {
     Route::get('/categories', 'getAllCourseCategories');
     Route::get('/','getCoursesByCategory');

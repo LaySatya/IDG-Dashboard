@@ -16,15 +16,18 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Copy existing application
 COPY . /var/www
 
-# Install PHP dependencies (this is the missing step!)
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www
-
-# Set Laravel permissions
 RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
-# Expose port 8000 and start Laravel server
+# Expose port
 EXPOSE 8000
-CMD php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000
+
+# 🚀 START Laravel (final fix applied)
+CMD php artisan config:clear && \
+    php artisan config:cache && \
+    php artisan migrate --force && \
+    php artisan serve --host=0.0.0.0 --port=8000
