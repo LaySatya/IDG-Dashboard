@@ -42,4 +42,15 @@ class MoodleService extends MoodleBaseService
         return $this->sendRequest($params);
     }
 
+    // Get all users
+    public function getAllUsers(?string $department, ?int $page, ?int $perPage){
+        $params = array_merge($this->getBaseParams(), [
+            'wsfunction' => 'local_idgqbank_get_all_users',
+            'department' => $department,
+            'page' => $page,
+            'perpage' => $perPage
+        ]);
+        return $this->sendRequest($params);
+    }
+
 }

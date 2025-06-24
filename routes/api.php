@@ -19,4 +19,5 @@ Route::prefix('course')->controller(MoodleServiceController::class)->group(funct
     Route::get('/','getCoursesByCategory');
     Route::get('/participants','getParticipantsFromCourse');
     Route::get('/participant_courses','getEnrolledCoursesOfUser');
+    Route::get('/users','getAllUsers');
 });

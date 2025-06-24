@@ -65,4 +65,16 @@ class MoodleServiceController extends Controller
         return response()->json($enrolledCourses);
     }
 
+    // Get all users
+    public function getAllUsers(Request $request){
+         $department = $request->input('department');
+         $page = $request->input('page');
+         $perPage = $request->input('per_page');
+
+
+        $users = $this->moodleService->getAllUsers($department, $page, $perPage);
+
+        return response()->json($users);
+    }
+
 }

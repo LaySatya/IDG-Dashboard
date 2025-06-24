@@ -15,6 +15,6 @@ services:
       - key: MOODLE_URL
         value: https://elearning.cadt.edu.kh
       - key: MOODLE_TOKEN
-        value: c1e3eeb3afcaa484dd4d3b0f7753df73
+        value: c557108b2a03ca8cbe7e49469f8d3f63
       - key: MOODLE_SERVICE
         value: qapi
