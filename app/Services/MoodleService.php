@@ -52,5 +52,14 @@ class MoodleService extends MoodleBaseService
         ]);
         return $this->sendRequest($params);
     }
+    // Get report in a course
+    public function getUserGradeInCourse(int $courseId, ?int $userId){
+        $params = array_merge($this->getBaseParams(), [
+            'wsfunction' => 'gradereport_user_get_grade_items',
+            'courseid' => $courseId,
+            'userid' => $userId,
+        ]);
+        return $this->sendRequest($params);
+    }
 
 }

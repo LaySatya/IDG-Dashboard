@@ -76,5 +76,21 @@ class MoodleServiceController extends Controller
 
         return response()->json($users);
     }
+    // Get users report in a course
+    public function getUserGradeInCourse(Request $request){
+         $courseId = $request->input('courseid');
+         $userId = $request->input('userid');
+
+         if(empty($courseId)){
+            return response()->json([
+                'message' => 'Course id is required!',
+            ]);
+         }
+        $grades = $this->moodleService->getUserGradeInCourse($courseId, $userId);
+
+
+
+        return response()->json($grades);
+    }
 
 }
